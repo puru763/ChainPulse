@@ -7,7 +7,8 @@ import java.util.List;
 public interface InventoryService {
     List<InventoryDTO> getAllInventory();
 
-    InventoryDTO updateInventory(InventoryDTO inventoryUpdate);
 
     String getInventoryForecast(Long productId);
+
+    InventoryDTO updateInventory(Long productId, InventoryDTO inventoryUpdateDTO);
 }

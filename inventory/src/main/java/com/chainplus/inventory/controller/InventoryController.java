@@ -11,11 +11,12 @@ import java.util.List;
 @RequestMapping("/api/v1/inventory")
 public class InventoryController {
 
-    private final InventoryService inventoryService;
+     final InventoryService inventoryService;
 
     public InventoryController(InventoryService inventoryService) {
         this.inventoryService = inventoryService;
     }
+
 
     @GetMapping
     public ResponseEntity<List<InventoryDTO>> getAllInventory() {
@@ -23,11 +24,16 @@ public class InventoryController {
         return ResponseEntity.ok(inventoryDTOList);
     }
 
-    @PostMapping("/update")
-    public ResponseEntity<InventoryDTO> updateInventory(@RequestBody InventoryDTO inventoryUpdateDTO) {
-        InventoryDTO updatedInventoryDTO = inventoryService.updateInventory(inventoryUpdateDTO);
-        return ResponseEntity.status(HttpStatus.CREATED).body(updatedInventoryDTO);
+    @PutMapping("/update/{productId}")
+    public ResponseEntity<InventoryDTO> updateInventory(
+            @PathVariable Long productId,
+            @RequestBody InventoryDTO inventoryUpdateDTO) {
+
+        InventoryDTO updatedInventoryDTO = inventoryService.updateInventory(productId, inventoryUpdateDTO);
+        return ResponseEntity.ok(updatedInventoryDTO);
     }
+
+
 
     @GetMapping("/forecast/{productId}")
     public ResponseEntity<String> getForecast(@PathVariable Long productId) {

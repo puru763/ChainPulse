@@ -2,7 +2,10 @@ package com.chainplus.inventory.mapper;
 
 import com.chainplus.inventory.dto.ProductDTO;
 import com.chainplus.inventory.entity.Product;
+import org.springframework.stereotype.Component;
 
+
+@Component
 public class ProductMapper {
 
     public static ProductDTO toDTO(Product product) {
