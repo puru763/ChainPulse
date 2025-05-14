@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="inventory" />
+        <module name="logistics" />
       </profile>
       <profile name="Annotation profile for orderprocessing" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
@@ -23,6 +24,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="inventory" options="-parameters" />
+      <module name="logistics" options="-parameters" />
       <module name="orderprocessing" options="-parameters" />
     </option>
   </component>
